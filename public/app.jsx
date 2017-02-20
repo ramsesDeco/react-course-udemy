@@ -5,13 +5,28 @@ var Greeter = React.createClass({
 			message: 'this is the default message'
 		};
 	},
-	onButtonClick: function(e) {
+	getInitialState: function () {
+		return {
+			name: this.props.name
+		};
+	},
+
+	onButtonClick: function (e) {
 		e.preventDefault(); // prevents the browser reload
-		var name = this.refs.name.value;
-		alert(name);
+
+		var nameRef = this.refs.name;
+		var name = nameRef.value;
+		nameRef.value = '';
+
+		if (typeof name === 'string' && name.length > 0) {
+			// this.state.name = name; this doesn't works
+			this.setState({
+				name: name
+			});
+		}
 	},
 	render: function () {
-		var name = this.props.name;
+		var name = this.state.name;
 		var message = this.props.message;
 
 		return (
@@ -20,7 +35,7 @@ var Greeter = React.createClass({
 				<p>{message + '!!'}</p>
 
 				<form onSubmit={this.onButtonClick}>
-					<input type="text" ref="name"/>
+					<input type="text" ref="name" />
 					<button>Set Name</button>
 				</form>
 			</div>
