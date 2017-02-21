@@ -1,19 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-var objOne = {
-	name: 'Ramses',
-	location: 'México'	
-}
-
-var objTwo = {
-	age: 25,
-	...objOne
-}
-
-console.log(objTwo)
+var {Route, Router, IndexRoute, hasHistory} = require('react-router');
+var Main = require('Main');
 
 ReactDOM.render(
-	<h1>Bolierplate app!</h1>,
+	<Router history={hasHistory}>
+		<Route path="/" component={Main}>
+
+		</Route>
+	</Router>,
 	document.getElementById('app')
 );
