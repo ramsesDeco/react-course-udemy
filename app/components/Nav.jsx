@@ -1,11 +1,15 @@
 var React = require('react');
+var {Link} = require('react-router');
 
-var Nav =  React.createClass({
+
+var Nav = React.createClass({
 	render: function () {
 		return (
 			<nav>
-				<h2>Inicio</h2>
-				<h2>API</h2>
+				<h2>Nav Component</h2>
+				<Link to='/'>Get Weather</Link>
+				<Link to='/about'>About</Link>
+				<Link to='/examples'>Examples</Link>
 			</nav>
 		);
 	}
