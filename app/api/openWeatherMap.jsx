@@ -12,7 +12,7 @@ module.exports = {
 			.catch(errorGetWeather)
 
 		function succesGetWeather(res) {
-			console.log('succesGetWeather', res);
+			console.log('api response succes', res);
 			if (res.data.cod && res.data.message) {
 				throw new Error(res.data.message);
 			} else {
@@ -21,8 +21,8 @@ module.exports = {
 		}
 
 		function errorGetWeather(res) {
-			console.log('errorGetWeather', res);
-			throw new Error(res.data.message);
+			console.log('api response error', res);
+			throw new Error(res.response.data.message);
 		}
 
 	}
