@@ -20,7 +20,7 @@ var Weather = React.createClass({
 				isLoading: false
 			});
 		}
-		var getTempError = (errorMessagetemp) => {
+		var getTempError = (errorMessage) => {
 			this.setState({ isLoading: false });
 			alert(errorMessage);
 		}
