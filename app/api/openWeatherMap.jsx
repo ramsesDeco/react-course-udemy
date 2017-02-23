@@ -20,9 +20,9 @@ module.exports = {
 			}
 		}
 
-		function errorGetWeather(res) {
-			console.log('api response error', res);
-			throw new Error(res.response.data.message);
+		function errorGetWeather(err) {
+			console.log('api response error', err);
+			throw new Error(err.response.data.message);
 		}
 
 	}
