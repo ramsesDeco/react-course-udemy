@@ -11,20 +11,27 @@ describe('TodoSearch', () => {
         expect(TodoSearch).toExist();
     });
 
-    it('should call onSearch when data changes', () => {
-        var searchText = 'Check mail';
+    it('should call onSearch with entered input text', () => {
+        var searchText = 'Dog';
+        var spy = expect.createSpy();
+        var todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy} />);
+
+        todoSearch.refs.searchText.value = searchText;
+        TestUtils.Simulate.change(todoSearch.refs.searchText);
+
+        expect(spy).toHaveBeenCalledWith(false, searchText);
+    });
+
+
+    it('should call onSearch with proper checked value', () => {
         var showCompleted = true;
         var spy = expect.createSpy();
         var todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy} />);
 
-        var $el = $(ReactDOM.findDOMNode(todoSearch));
-
-        todoSearch.refs.searchText.value = searchText;
         todoSearch.refs.showCompleted.checked = showCompleted;
+        TestUtils.Simulate.change(todoSearch.refs.showCompleted);
 
-        TestUtils.Simulate.change($el.find('input')[0]);
-
-        expect(spy).toHaveBeenCalledWith(showCompleted, searchText);
+        expect(spy).toHaveBeenCalledWith(showCompleted, '');
     });
 
 });
