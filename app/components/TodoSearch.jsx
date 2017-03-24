@@ -13,7 +13,7 @@ var TodoSearch = React.createClass({
                     <input type="search" ref="searchText" onChange={this.handleSearch} placeholder="Search tasks" />
                 </div>
                 <div>
-                    <label htmlFor="">
+                    <label>
                         <input type="checkbox" ref="showCompleted" onChange={this.handleSearch} />
                         Show completed todos
                     </label>
