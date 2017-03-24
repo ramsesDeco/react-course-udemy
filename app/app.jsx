@@ -2,7 +2,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var { Route, Router, IndexRoute, hasHistory, browserHistory } = require('react-router');
 
-var Main = require('Main');
 
 // Load foundation
 $(document).foundation();
@@ -11,8 +10,8 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-	<Router history={hasHistory}>
-		<Route path="/" component={Main}></Route>
-	</Router>,
+	<p> BoilerPlate </p>,
 	document.getElementById('app')
 );
+
+require('./redux-example.jsx');
