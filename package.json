@@ -7,6 +7,7 @@
     "webpack": "webpack",
     "test": "karma start",
     "start": "node server",
+    "watch": "webpack -w",
     "heroku-postbuild": "postinstall-build 'npm run webpack' 'npm run webpack'"
   },
   "author": "Ramses De La Peña",
